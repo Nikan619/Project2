@@ -3,13 +3,13 @@ import {useState} from "react"
 
 
 
-function  BettingBoard(){
+function  BettingBoard({bank,setBank}){
     const [betPlaced,setBetPlaced] =useState(0);
     const [numberBet,setNumberBet] = useState(0);
     const [outcome,setOutcome] =useState(0);
     // const numberBet =5;
     // const betPlaced =100;
-    let bank=300;
+    
    
 
 // if(numberBet===numberSelected){
@@ -33,6 +33,8 @@ function  BettingBoard(){
         setNumberBet(numberBet)
         console.log(betPlaced)
         console.log(numberBet)
+        setBank(bank-parseInt(numberBet))
+        console.log(bank)
         console.log(numberSelected)
         if(parseInt(numberBet)===numberSelected){
             let payOut= betPlaced*35

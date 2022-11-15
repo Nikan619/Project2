@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="X70QVtvjyhKhb88_ISLj" name="Page-1">
-        <mxGraphModel dx="856" dy="502" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="954" dy="763" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -9,8 +9,8 @@
                 </mxCell>
                 <mxCell id="11" value="" style="endArrow=classic;html=1;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="480" y="170" as="sourcePoint"/>
-                        <mxPoint x="590" y="310" as="targetPoint"/>
+                        <mxPoint x="510" y="120" as="sourcePoint"/>
+                        <mxPoint x="620" y="260" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="13" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="2" edge="1">
@@ -30,11 +30,11 @@
                         <mxPoint x="370" y="370.0000000000001" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="14" value="LeaderBoard&lt;br&gt;data from json. utilize fetch,post&lt;br&gt;&lt;br&gt;state --leaders setLeaders&lt;br&gt;&lt;br&gt;will need access to betters earning(putting betting board below to do this)" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
-                    <mxGeometry x="330" y="271" width="158" height="158" as="geometry"/>
+                <mxCell id="14" value="LeaderBoard&lt;br&gt;data from json. utilize fetch,post&lt;br&gt;&lt;br&gt;state --leaders setLeaders&lt;br&gt;&lt;br&gt;will need access to betters earning(putting betting board below to do this)&lt;br&gt;post leaders from json and current player. Bank should be in state . Map and sort db.json inside leaderboard.&amp;nbsp;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="271" width="340" height="340" as="geometry"/>
                 </mxCell>
                 <mxCell id="16" value="Home&lt;br&gt;/about-describe rules of the game&lt;br&gt;(save the name of the player)" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
-                    <mxGeometry x="570" y="280" width="140" height="140" as="geometry"/>
+                    <mxGeometry x="630" y="250" width="140" height="140" as="geometry"/>
                 </mxCell>
                 <mxCell id="18" value="" style="endArrow=classic;html=1;" parent="1" source="14" target="19" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -43,7 +43,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="19" value="Betting Board&lt;br&gt;need to know current order of leaders and their amount" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
-                    <mxGeometry x="318" y="460" width="170" height="170" as="geometry"/>
+                    <mxGeometry x="318" y="730" width="170" height="170" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
