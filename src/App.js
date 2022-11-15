@@ -1,8 +1,11 @@
 
 import './App.css';
+import BettingBoard from './BettingBoard';
 
 function App() {
-  return (console.log())
+ 
+  
+  return (<BettingBoard/>)
 }
 
 export default App;
