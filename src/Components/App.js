@@ -4,6 +4,7 @@ import LeaderBoard from './LeaderBoard';
 import BettingBoard from './BettingBoard';
 import Table from './Table';
 import {useState} from "react"
+import Home from './Home'
 
 function App() {
   const [numberBet, setNumberBet] = useState({
@@ -21,7 +22,7 @@ function App() {
   
   return (<>
   <Table numberBet={numberBet} setNumberBet={setNumberBet}/>
-  
+  <Home />
   <LeaderBoard/>
   </>)
 }

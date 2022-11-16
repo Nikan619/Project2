@@ -53,7 +53,7 @@ function  BettingBoard({bank,setBank}){
 
 return(
     <div>
-        <h1>Place your bet</h1>
+        <h1>Total Money Bet</h1>
         <form onSubmit={handleSubmit} >
             <input onChange={handleChange} value={betPlaced}type="text"></input>
             
