@@ -10,15 +10,6 @@ return (
 )
 }
 
-
-
-
-
-
-
-
-
-
 export default LeaderBoard;
 
 

@@ -45,15 +45,8 @@ function App() {
 
   
   return (<>
-  <table>
-    <tbody>
-      <tr>
-  <Table numberBet={numberBet} setNumberBet={setNumberBet} bank={bank} setBank={setBank}/>
-  </tr>
-  </tbody>
-  </table>
   <Home />
-  <LeaderBoard bank={bank} setBank={setBank} numberBet={numberBet} setNumberBet={setNumberBet} resetNumberBet={resetNumberBet}/>
+  <BettingBoard bank={bank} setBank={setBank} numberBet={numberBet} setNumberBet={setNumberBet} resetNumberBet={resetNumberBet}/>
   </>)
 }
 
