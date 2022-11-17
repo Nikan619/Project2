@@ -29,6 +29,11 @@
       "id": 6,
       "Player": "Bryan",
       "bank": 1
+    },
+    {
+      "id": 7,
+      "Player": "jack",
+      "bank": 500
     }
   ]
 }

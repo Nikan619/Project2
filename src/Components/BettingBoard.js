@@ -1,58 +1,44 @@
 
 import {useState} from "react"
-import Table from './Table'
+import Board from './Board'
 
 
 
 function  BettingBoard({bank, setBank, numberBet, setNumberBet, resetNumberBet}){
-    //const [betPlaced,setBetPlaced] =useState(0);
-    //const [numberBet,setNumberBet] = useState([]);
-    //const [outcome,setOutcome] =useState(0);
-
-    // const numberBet =5;
-    // const betPlaced =100;
-
-// if(numberBet===numberSelected){
-//     let payOut= betPlaced*35
-//     console.log(`Congrats you won $${payOut}!`)
-// }
-    const [winningNumber, setWinningNumber] = useState(5)
+  
+   
+    const [winningNumber, setWinningNumber] = useState(1)
     
-    // function handleChange(e){
-    //     setBetPlaced(e.target.value)
-    //     console.log(betPlaced)
-    // }
-    // function handleNumberChange(e){
-    //     setNumberBet(e.target.value)
-    //     console.log(numberBet)
-    // }
-    //console.log(numberBet[1])
+   
+    let winnerMessage="Good Job!";
+    const [payOut,setPayout]=useState(0)
+    
+    
     
     function handleSubmit(e){
-        
-        setWinningNumber(Math.floor(Math.random()*37))
+        setPayout(payOut*0)
+        setWinningNumber(Math.floor(Math.random()*36))
+      
         e.preventDefault();
-        //setBetPlaced(betPlaced)
-        setNumberBet(numberBet)
-        //console.log(betPlaced)
-        //console.log(numberBet)
+       
+        setNumberBet(numberBet=>numberBet)
+      
+        setPayout((payOut)=>payOut+numberBet[winningNumber] *35)
+        let winnerMessage="";
+        if (payOut > 0) {
+            winnerMessage = `You’ve won $ ${payOut}`;
+        }
+
         
-        //console.log(bank)
-        const payOut = numberBet[winningNumber] *35
-        //console.log(numberBet[winningNumber])
-        
-        //console.log(payOut)
-        setBank(bank + payOut)
+        setBank(bank=>bank + payOut)
 
         setNumberBet(resetNumberBet)
-        // Object.entries(numberBet).map((values) => {
-        //     setNumberBet(values[1]=0)
-        // })
-        //console.log(numberSelected)
-        // if(parseInt(numberBet)===winningNumber){
-        //     let payOut= betPlaced*35
-        //     setBank(bank=>bank+payOut)
-            //console.log(`Congrats you won $${payOut} you now have $${bank}!`)
+
+        
+
+        console.log(numberBet)
+        console.log(winningNumber)
+       
         }
     
 
@@ -70,8 +56,10 @@ return(
             <button type="submit" >Spin the Wheel</button>
             <p>${bank}</p>
             <p>The Winning Number is {winningNumber}</p>
+            {payOut? <p>{`${winnerMessage}+$${payOut}`}</p>: <p>Take a spin.</p>}
+        
         </form>
-        <Table bank={bank} setBank={setBank} numberBet={numberBet} setNumberBet={setNumberBet}/>
+        <Board bank={bank} setBank={setBank} numberBet={numberBet} setNumberBet={setNumberBet}/>
     </div>
     
 )

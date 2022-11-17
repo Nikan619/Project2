@@ -3,10 +3,14 @@
 import LeaderBoard from './LeaderBoard';
 import BettingBoard from './BettingBoard';
 import Table from './Table';
-import {useState} from "react"
+import {useState,useEffect} from "react"
 import Home from './Home'
+import {Switch,Route} from "react-router-dom";
+import NavBar from "./NavBar";
+
 
 function App() {
+  const[playerList,setplayerList]=useState([])
   const [bank ,setBank]=useState(500)
   const [numberBet, setNumberBet] = useState({
     "0":0, "00":0,
@@ -22,31 +26,47 @@ function App() {
     "3":0, "6":0, "9":0, "12":0, "15":0, "18":0, "21":0, "24":0, "27":0, "30":0, "33":0, "36":0
   }
 
-  //console.log(resetNumberBet)
-// console.log(numberBet[7])
+  useEffect(()=>{
+    fetch('http://localhost:3000/Players')
+    .then(r => r.json())
+    .then(data => {
+      // console.log(data)
+      setplayerList(data)
+    })
+  },[])
+  function handlebankChange(id, correctIndex) {
+    fetch(`http://localhost:3000/Players`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ correctIndex }),
+    })
+      .then((r) => r.json())
+      .then((updatedbank) => {
+        const updatedScore = playerList.map((q) => {
+          if (q.id === updatedbank.id) return updatedbank;
+          return q;
+        });
+        setBank(updatedScore);
+      });
+  }
 
-// const magicNumber = 7
-
-//const payOut = numberBet[winningNumber] *35
-
-// console.log(payOut)
-
-//   for (let i=0; i<38; i++){
-//  const newArray = Object.keys(numberBet)
-//   newArray.forEach((key) => {
-//     if (key===numberSelected) {
-
-//     }
-//     console.log(key)
-//   })
-//   }
   
-
-
-  
-  return (<>
-  <Home />
+  return (
+  <>
+  <NavBar  />
+  <Switch>
+  <Route path="/bettingboard">
   <BettingBoard bank={bank} setBank={setBank} numberBet={numberBet} setNumberBet={setNumberBet} resetNumberBet={resetNumberBet}/>
+  </Route>
+  <Route path="/leaderboard">
+    <LeaderBoard setplayerList={setplayerList} playerList={playerList} />
+    </Route>
+  <Route path="/">
+  <Home />
+  </Route>
+  </Switch>
   </>)
 }
 
