@@ -3,7 +3,7 @@ import {useState} from "react"
 
 
 
-function  BettingBoard({bank,setBank, numberBet, setNumberBet}){
+function  BettingBoard({bank,setBank, numberBet, setNumberBet, resetNumberBet}){
     //const [betPlaced,setBetPlaced] =useState(0);
     //const [numberBet,setNumberBet] = useState([]);
     //const [outcome,setOutcome] =useState(0);
@@ -32,23 +32,28 @@ function  BettingBoard({bank,setBank, numberBet, setNumberBet}){
     //     setNumberBet(e.target.value)
     //     console.log(numberBet)
     // }
-    console.log(numberBet[1])
+    //console.log(numberBet[1])
     
     function handleSubmit(e){
         
-        setWinningNumber(Math.floor(Math.random()*1))
+        setWinningNumber(Math.floor(Math.random()*37))
         e.preventDefault();
         //setBetPlaced(betPlaced)
         setNumberBet(numberBet)
         //console.log(betPlaced)
-        console.log(numberBet)
+        //console.log(numberBet)
         
-        console.log(bank)
+        //console.log(bank)
         const payOut = numberBet[winningNumber] *35
-        console.log(numberBet[winningNumber])
+        //console.log(numberBet[winningNumber])
         
         //console.log(payOut)
         setBank(bank + payOut)
+
+        setNumberBet(resetNumberBet)
+        // Object.entries(numberBet).map((values) => {
+        //     setNumberBet(values[1]=0)
+        // })
         //console.log(numberSelected)
         // if(parseInt(numberBet)===winningNumber){
         //     let payOut= betPlaced*35
