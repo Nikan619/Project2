@@ -1,9 +1,7 @@
 import {useEffect, useState} from"react"
 // import { Card } from "semantic-ui-react";
 
-
-
-function Table({numberBet,setNumberBet, bank, setBank}){
+function Table({numberBet, setNumberBet, bank, setBank}){
     //const [betCount,setBetCount]=useState(0)
 
     // Object.entries(numberBet).forEach(([number, bet]) => {
