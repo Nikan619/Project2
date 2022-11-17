@@ -1,44 +1,52 @@
 
-import {useState} from "react"
+import {useState,useEffect} from "react"
 import Board from './Board'
 
 
 
 function  BettingBoard({bank, setBank, numberBet, setNumberBet, resetNumberBet}){
   
-   
+
     const [winningNumber, setWinningNumber] = useState(1)
+    const [winningMessage,setWinningMessage]=useState(false)
     
    
-    let winnerMessage="Good Job!";
+ 
     const [payOut,setPayout]=useState(0)
     
+    const resetPayOut=0
     
-    
-    function handleSubmit(e){
-        setPayout(payOut*0)
-        setWinningNumber(Math.floor(Math.random()*36))
+     function handleSubmit(e){
+        e.preventDefault()
+        
+        let randomNumber =Math.floor(Math.random()*37)
+         setWinningNumber(randomNumber)
       
-        e.preventDefault();
+      
        
-        setNumberBet(numberBet=>numberBet)
-      
-        setPayout((payOut)=>payOut+numberBet[winningNumber] *35)
-        let winnerMessage="";
-        if (payOut > 0) {
-            winnerMessage = `You’ve won $ ${payOut}`;
+        // setNumberBet(numberBet=>numberBet)
+      let winnings= payOut+numberBet[randomNumber] *35
+        setPayout((winnings))
+
+       
+        
+        
+
+        
+        setBank(bank=>bank + winnings)
+
+          setNumberBet(resetNumberBet)
+        if(winnings>0){
+            setWinningMessage(!winningMessage)
+        }else if(winnings===0){
+            setWinningMessage(false)
         }
 
+        setPayout(resetPayOut)
+        console.log(randomNumber)
+        console.log(winnings)
+
         
-        setBank(bank=>bank + payOut)
-
-        setNumberBet(resetNumberBet)
-
-        
-
-        console.log(numberBet)
-        console.log(winningNumber)
-       
         }
     
 
@@ -56,7 +64,7 @@ return(
             <button type="submit" >Spin the Wheel</button>
             <p>${bank}</p>
             <p>The Winning Number is {winningNumber}</p>
-            {payOut? <p>{`${winnerMessage}+$${payOut}`}</p>: <p>Take a spin.</p>}
+            {winningMessage? <p>{`You won baby!!! ` }</p>: <p>Take a spin.</p>}
         
         </form>
         <Board bank={bank} setBank={setBank} numberBet={numberBet} setNumberBet={setNumberBet}/>

@@ -12,15 +12,13 @@ function Board({numberBet,setNumberBet, bank, setBank}){
 
   const handleIncClick=(value)=>{
     //console.log()
-    console.log(value)
-    console.log(value[0])
-    console.log(value[1])
+  
     const newKey = value[0]
-    console.log(typeof(newKey))
+   
     const newIncrement = value[1]+10
     setBank(bank - 10)
     //const newValue = {value[0]: value[1]+1}
-    console.log(numberBet)
+  
     setNumberBet({...numberBet, 
       [newKey] : newIncrement})
   }
