@@ -2,11 +2,11 @@ import BettingBoard from "./BettingBoard";
 import {useState} from "react"
 
 
-function LeaderBoard() {
-  const [bank ,setBank]=useState(500)
+function LeaderBoard({bank, setBank, numberBet, setNumberBet}) {
+
 
 return (
-<BettingBoard bank={bank} setBank={setBank}/>
+<BettingBoard bank={bank} setBank={setBank} numberBet={numberBet} setNumberBet={setNumberBet}/>
 )
 }
 

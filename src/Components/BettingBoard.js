@@ -3,10 +3,10 @@ import {useState} from "react"
 
 
 
-function  BettingBoard({bank,setBank}){
-    const [betPlaced,setBetPlaced] =useState(0);
-    const [numberBet,setNumberBet] = useState([]);
-    const [outcome,setOutcome] =useState(0);
+function  BettingBoard({bank,setBank, numberBet, setNumberBet}){
+    //const [betPlaced,setBetPlaced] =useState(0);
+    //const [numberBet,setNumberBet] = useState([]);
+    //const [outcome,setOutcome] =useState(0);
     // const [straightUps, setStraightUps] = useState({
     //     "0":0, "00":0,
     //     "1":0, "4":0, "7":0, "10":0, "13":0, "16":0, "19":0, "22":0, "25":0, "28":0, "31":0, "34":0,
@@ -22,45 +22,55 @@ function  BettingBoard({bank,setBank}){
 //     let payOut= betPlaced*35
 //     console.log(`Congrats you won $${payOut}!`)
 // }
-  
+    const [winningNumber, setWinningNumber] = useState(5)
     
-    function handleChange(e){
-        setBetPlaced(e.target.value)
-        console.log(betPlaced)
-    }
-    function handleNumberChange(e){
-        setNumberBet(e.target.value)
-        console.log(numberBet)
-    }
+    // function handleChange(e){
+    //     setBetPlaced(e.target.value)
+    //     console.log(betPlaced)
+    // }
+    // function handleNumberChange(e){
+    //     setNumberBet(e.target.value)
+    //     console.log(numberBet)
+    // }
+    console.log(numberBet[1])
     
     function handleSubmit(e){
         
-        let numberSelected=Math.floor(Math.random()*6)
+        setWinningNumber(Math.floor(Math.random()*1))
         e.preventDefault();
-        setBetPlaced(betPlaced)
+        //setBetPlaced(betPlaced)
         setNumberBet(numberBet)
-        console.log(betPlaced)
+        //console.log(betPlaced)
         console.log(numberBet)
-        setBank(bank-parseInt(betPlaced))
+        
         console.log(bank)
-        console.log(numberSelected)
-        if(parseInt(numberBet)===numberSelected){
-            let payOut= betPlaced*35
-            setBank(bank=>bank+payOut)
-            console.log(`Congrats you won $${payOut} you now have $${bank}!`)
+        const payOut = numberBet[winningNumber] *35
+        console.log(numberBet[winningNumber])
+        
+        //console.log(payOut)
+        setBank(bank + payOut)
+        //console.log(numberSelected)
+        // if(parseInt(numberBet)===winningNumber){
+        //     let payOut= betPlaced*35
+        //     setBank(bank=>bank+payOut)
+            //console.log(`Congrats you won $${payOut} you now have $${bank}!`)
         }
-    }
+    
+
+
+
 
 return(
     <div>
         <h1>Total Money Bet</h1>
         <form onSubmit={handleSubmit} >
-            <input onChange={handleChange} value={betPlaced}type="text"></input>
+            {/* <input onChange={handleChange} value={betPlaced}type="text"></input>
             
             <h2>Place your number</h2>
-            <input onChange={handleNumberChange}type="text" value={numberBet}></input>
-            <button type="submit" >Submit</button>
+            <input onChange={handleNumberChange}type="text" value={numberBet}></input> */}
+            <button type="submit" >Spin the Wheel</button>
             <p>${bank}</p>
+            <p>The Winning Number is {winningNumber}</p>
         </form>
        
     </div>
