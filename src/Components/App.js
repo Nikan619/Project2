@@ -11,7 +11,7 @@ import NavBar from "./NavBar";
 
 
 function App() {
-  const[playerList,setplayerList]=useState([])
+  const[playerList, setplayerList]=useState([])
   const [bank ,setBank]=useState(500)
   const [numberBet, setNumberBet] = useState({
     "0":0, "00":0,
@@ -31,7 +31,7 @@ function App() {
     fetch('http://localhost:3000/Players')
     .then(r => r.json())
     .then(data => {
-      // console.log(data)
+
       setplayerList(data)
     })
   },[])

@@ -2,16 +2,12 @@
 import {useState,useEffect} from "react"
 import Board from './Board'
 
-
-
 function  BettingBoard({bank, setBank, numberBet, setNumberBet, resetNumberBet}){
-  
 
     const [winningNumber, setWinningNumber] = useState(1)
     const [winningMessage,setWinningMessage]=useState(false)
+    const [totalMoneyBet, setTotalMoneyBet] = useState(0)
     
-   
- 
     const [payOut,setPayout]=useState(0)
     
     const resetPayOut=0
@@ -22,17 +18,10 @@ function  BettingBoard({bank, setBank, numberBet, setNumberBet, resetNumberBet})
         let randomNumber =Math.floor(Math.random()*37)
          setWinningNumber(randomNumber)
       
-      
-       
-        // setNumberBet(numberBet=>numberBet)
-      let winnings= payOut+numberBet[randomNumber] *35
+        let winnings= payOut+numberBet[randomNumber] *35
+
         setPayout((winnings))
-
-       
-        
-        
-
-        
+        setTotalMoneyBet(0)
         setBank(bank=>bank + winnings)
 
           setNumberBet(resetNumberBet)
@@ -43,31 +32,21 @@ function  BettingBoard({bank, setBank, numberBet, setNumberBet, resetNumberBet})
         }
 
         setPayout(resetPayOut)
-        console.log(randomNumber)
-        console.log(winnings)
-
-        
         }
     
-
-
-
-
 return(
     <div>
-        <h1>Total Money Bet</h1>
+        <h1>Total Money Bet ${totalMoneyBet}</h1>
         <form onSubmit={handleSubmit} >
-            {/* <input onChange={handleChange} value={betPlaced}type="text"></input>
-            
-            <h2>Place your number</h2>
-            <input onChange={handleNumberChange}type="text" value={numberBet}></input> */}
-            <button className="roulette"type="submit" >Spin the Wheel</button>
-            <p>${bank}</p>
-            <p>The Winning Number is {winningNumber}</p>
-            {winningMessage? <p>{`You won baby!!! ` }</p>: <p>Take a spin.</p>}
-        
+
+            <button className="roulette"type="submit" >SPIN THE WHEEL</button>
+            <h2>Bank ${bank}</h2>
+            <h2>The Winning Number is {winningNumber}</h2>
+            {winningMessage? <h2>{`You won baby!!! ` }</h2>: <h2>Take a spin.</h2>}
+
         </form>
-        <Board bank={bank} setBank={setBank} numberBet={numberBet} setNumberBet={setNumberBet}/>
+        <Board bank={bank} setBank={setBank} numberBet={numberBet} setNumberBet={setNumberBet} totalMoneyBet={totalMoneyBet} setTotalMoneyBet={setTotalMoneyBet}/>
+
     </div>
     
 )

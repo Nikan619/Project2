@@ -1,28 +1,21 @@
 import { useEffect, useState } from "react"
-// import { Card } from "semantic-ui-react";
 
 
-
-function Board({ numberBet, setNumberBet, bank, setBank }) {
-  //const [betCount,setBetCount]=useState(0)
-
-  // Object.entries(numberBet).forEach(([number, bet]) => {
-  //   console.log(number, bet)
-  //  })
+function Board({ numberBet, setNumberBet, bank, setBank, totalMoneyBet, setTotalMoneyBet }) {
 
   const handleIncClick = (value) => {
-    //console.log()
-
+    if (bank>0){
     const newKey = value[0]
 
     const newIncrement = value[1] + 10
     setBank(bank - 10)
-    //const newValue = {value[0]: value[1]+1}
+    setTotalMoneyBet(totalMoneyBet+10)
 
     setNumberBet({
       ...numberBet,
       [newKey]: newIncrement
     })
+    }
   }
 
   const handleDecClick = (value) => {
@@ -30,6 +23,7 @@ function Board({ numberBet, setNumberBet, bank, setBank }) {
       const newKey = value[0]
       const newDecrement = value[1] - 10
       setBank(bank + 10)
+      setTotalMoneyBet(totalMoneyBet-10)
       setNumberBet({
         ...numberBet,
         [newKey]: newDecrement
