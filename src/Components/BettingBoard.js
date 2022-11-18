@@ -61,7 +61,7 @@ return(
             
             <h2>Place your number</h2>
             <input onChange={handleNumberChange}type="text" value={numberBet}></input> */}
-            <button type="submit" >Spin the Wheel</button>
+            <button className="roulette"type="submit" >Spin the Wheel</button>
             <p>${bank}</p>
             <p>The Winning Number is {winningNumber}</p>
             {winningMessage? <p>{`You won baby!!! ` }</p>: <p>Take a spin.</p>}

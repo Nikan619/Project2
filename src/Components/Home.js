@@ -37,7 +37,7 @@ function Home() {
     }
     return (
         <div>
-            <section>
+            <section className="homepage" >
                 <h1> Enter Your name</h1>
                 <form onSubmit={handleSubmit} >
                     <input type="text"
@@ -49,7 +49,7 @@ function Home() {
                 </form>
             <section>
                 <h2>Welcome to Roulette! </h2>
-                <h4>Each player will start with 500 Dollars and each bet is $10. You can place as many bets as you want on the number of your choice. Spin the wheel to make big money! </h4>
+                <h4>Each player will start with $500 and each bet is $10. You can place as many bets as you want on  any numbers. Spin the wheel to make big money! </h4>
                 <p>*Disclaimer: House always wins! </p>
                 </section>
             </section>
