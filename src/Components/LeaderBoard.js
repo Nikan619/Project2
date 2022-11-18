@@ -18,7 +18,8 @@ function LeaderBoard({playerList,setplayerList}) {
 
 return (
 
-    <div>
+    <div className="LeaderBoard">
+        <h2> Top Players </h2>
     {displayPlayer}
     </div>
 

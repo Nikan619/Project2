@@ -28,6 +28,61 @@
   color: #61dafb;
 }
 
+/* h1 {
+  background-color: blue;
+} */
+
+body{
+  background: crimson;
+}
+
+.entry{
+  margin-top: 10px;
+}
+
+/* .roulette{
+  background-image: ;
+} */
+
+.NavBar{
+  min-height: 100px;
+  color: rgb(157, 17, 17);
+  justify-content: center;
+}
+.LeaderBoard{
+  justify-content: center;
+  margin-top: 10px;
+}
+.minus{
+  font-size: large;
+  /* margin: auto; */
+  display:block;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: 1px solid rgb(0, 42, 255);
+
+}
+.Plus{
+  font-size: large;
+  display:block;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: 1px solid rgb(17, 0, 255);
+}
+.homepage{
+  background: rgba(48, 48, 48, 0.4) ;
+  
+ 
+}
+
+/* .numbers{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+} */
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
