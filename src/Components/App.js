@@ -1,5 +1,5 @@
 
-// import './App.css';
+import '../App.css';
 import LeaderBoard from './LeaderBoard';
 import BettingBoard from './BettingBoard';
 import Table from './Table';
@@ -7,6 +7,7 @@ import {useState,useEffect} from "react"
 import Home from './Home'
 import {Switch,Route} from "react-router-dom";
 import NavBar from "./NavBar";
+
 
 
 function App() {
@@ -54,8 +55,8 @@ function App() {
 
   
   return (
-  <>
-  <NavBar  />
+  <div className="App">
+  <NavBar/>
   <Switch>
   <Route path="/bettingboard">
   <BettingBoard bank={bank} setBank={setBank} numberBet={numberBet} setNumberBet={setNumberBet} resetNumberBet={resetNumberBet}/>
@@ -67,7 +68,7 @@ function App() {
   <Home />
   </Route>
   </Switch>
-  </>)
+  </div>)
 }
 
 export default App;

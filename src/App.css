@@ -28,6 +28,23 @@
   color: #61dafb;
 }
 
+/* h1 {
+  background-color: blue;
+} */
+
+body{
+  background: #61dafb;
+}
+
+.NavBar{
+  min-height: 100px;
+  color: rgb(157, 17, 17);
+  justify-content: center;
+}
+.LeaderBoard{
+  justify-content: center;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
